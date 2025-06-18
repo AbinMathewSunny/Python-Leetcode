@@ -1,0 +1,17 @@
+class Solution:
+    def subsets(self, nums: List[int]) -> List[List[int]]:
+        res = []
+
+        def funct(i,arr,length):
+            if i == length:
+                res.append(arr.copy())
+                return
+            arr.append(nums[i])
+            funct(i+1,arr,length)
+            arr.pop()  
+            funct(i+1,arr,length)
+
+        n = len(nums)
+        funct(0,[],n)
+        return res      
+        
