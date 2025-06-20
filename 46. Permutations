@@ -1,0 +1,15 @@
+class Solution:
+    def permute(self, nums: List[int]) -> List[List[int]]:
+        def recur_permute(index):
+            if index == len(nums):
+                ans.append(nums[:])
+                return
+            for i in range(index,len(nums)):
+                    nums[index],nums[i] = nums[i],nums[index]
+                    recur_permute(index+1)
+                    nums[index],nums[i] = nums[i],nums[index]
+                    
+        ans =[]
+        recur_permute(0)
+        return ans    
+        
